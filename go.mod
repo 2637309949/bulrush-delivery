@@ -2,7 +2,10 @@ module github.com/2637309949/bulrush-delivery
 
 go 1.12
 
-require github.com/gin-gonic/gin v1.4.0
+require (
+	github.com/2637309949/bulrush v0.0.0-20190622124305-103243648496
+	github.com/gin-gonic/gin v1.4.0
+)
 
 replace golang.org/x/text v0.3.0 => github.com/golang/text v0.3.0
 
