@@ -1,14 +1,23 @@
-# bulrush-delivery
+## bulrush-delivery
 Provide static file services, such as HTML, public files  
-- EXAMPLE:   
+
+### Example
+
 ```go
-app.Use(
-    &delivery.Delivery {
-        URLPrefix: "/public",
-        Path: path.Join("assets/public", ""),
-    }
-)
+var Delivery = delivery.New()
+app.Use(Delivery)
 ```
+### API
+
+```go
+// set diff property if you want
+type Delivery struct {
+	bulrush.PNBase
+	Path      string
+	URLPrefix string
+}
+```
+
 ## MIT License
 
 Copyright (c) 2018-2020 Double

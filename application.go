@@ -10,6 +10,7 @@ package delivery
 
 import (
 	"net/http"
+	"path"
 
 	"github.com/2637309949/bulrush"
 	"github.com/gin-gonic/gin"
@@ -20,6 +21,15 @@ type Delivery struct {
 	bulrush.PNBase
 	Path      string
 	URLPrefix string
+}
+
+// New return Delivery with default property
+func New() *Delivery {
+	del := &Delivery{
+		URLPrefix: "/public",
+		Path:      path.Join("assets/public", ""),
+	}
+	return del
 }
 
 // Plugin for gin
