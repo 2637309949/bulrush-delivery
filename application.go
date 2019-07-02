@@ -33,7 +33,7 @@ func New() *Delivery {
 }
 
 // Plugin for gin
-func (delivery *Delivery) Plugin() bulrush.PNRet {
+func (delivery *Delivery) Plugin() interface{} {
 	return func(httpProxy *gin.Engine) {
 		lf := localFile(delivery.Path, false)
 		fileserver := http.FileServer(lf)
