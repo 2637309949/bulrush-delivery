@@ -38,9 +38,6 @@ func (delivery *Delivery) Plugin(httpProxy *gin.Engine) {
 		fileserver = http.StripPrefix(delivery.URLPrefix, fileserver)
 	}
 	httpProxy.GET(delivery.URLPrefix+"/*any", func(c *gin.Context) {
-		if lf.Exists(delivery.URLPrefix, c.Request.URL.Path) {
-			fileserver.ServeHTTP(c.Writer, c.Request)
-			c.Abort()
-		}
+		fileserver.ServeHTTP(c.Writer, c.Request)
 	})
 }
