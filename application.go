@@ -30,6 +30,12 @@ func New() *Delivery {
 	return del
 }
 
+// Init d
+func (delivery *Delivery) Init(init func(*Delivery)) *Delivery {
+	init(delivery)
+	return delivery
+}
+
 // Plugin for gin
 func (delivery *Delivery) Plugin(httpProxy *gin.Engine) {
 	lf := localFile(delivery.Path, false)
